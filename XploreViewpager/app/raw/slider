@@ -1,0 +1,9 @@
+https://www.androidtutorialpoint.com/basics/android-image-slider-tutorial/
+https://stackoverflow.com/questions/28071349/the-specified-child-already-has-a-parent-you-must-call-removeview-on-the-chil
+
+ViewPager inside ScrollView
+https://stackoverflow.com/questions/7381360/is-it-possible-to-have-a-viewpager-inside-of-a-scrollview
+
+https://developer.android.com/reference/android/widget/ScrollView.html
+
+android:fillViewport	Defines whether the scrollview should stretch its content to fill the viewport.
