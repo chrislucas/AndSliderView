@@ -20,7 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
-import appcode.xploreviewpager.transformer.adapter.ImageViewPageAdapter;
+import appcode.xploreviewpager.viewpager.transformer.adapter.ImageViewPageAdapter;
 import appcode.xploreviewpager.utils.ImageReaderFromAssetsFolder;
 import me.relex.circleindicator.CircleIndicator;
 
@@ -48,7 +48,7 @@ public class XploreSliderTutorial extends AppCompatActivity {
 
             @Override
             public void run() {
-                ImageViewPageAdapter.Callback callback = new ImageViewPageAdapter.Callback() {
+                ImageViewPageAdapter.CallbackImagePagerAdapter callbackImagePagerAdapter = new ImageViewPageAdapter.CallbackImagePagerAdapter() {
                     @Override
                     public void lastPageListener(View view) {
                         Button button = (Button) view.findViewById(idButton);
@@ -76,6 +76,11 @@ public class XploreSliderTutorial extends AppCompatActivity {
                             relativeLayout.addView(button);
                         }
                     }
+
+                    @Override
+                    public Context getContext() {
+                        return context;
+                    }
                 };
 
                 List<Bitmap> bitmaps = null;
@@ -87,10 +92,7 @@ public class XploreSliderTutorial extends AppCompatActivity {
                 }
                 finally {
                     if(bitmaps != null) {
-                        PagerAdapter pagerAdapter = new ImageViewPageAdapter(context
-                                ,(ArrayList<Bitmap>) bitmaps
-                                ,callback
-                                ,R.layout.layout_imageview);
+                        PagerAdapter pagerAdapter = new ImageViewPageAdapter((ArrayList<Bitmap>) bitmaps, callbackImagePagerAdapter, R.layout.layout_imageview, R.id.image_on_slider);
                         viewPager.setAdapter(pagerAdapter);
                         circleIndicator.setViewPager(viewPager);
                         circleIndicator.setBackgroundColor(Color.BLACK);

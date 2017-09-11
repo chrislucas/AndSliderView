@@ -1,16 +1,15 @@
-package appcode.xploreviewpager.transformer.adapter;
+package appcode.xploreviewpager.viewpager.transformer.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentPagerAdapter;
 
 /**
  * Created by r028367 on 11/09/2017.
  */
 
-public class CustomFragmentStatePagerAdapter extends FragmentStatePagerAdapter {
-
-    public CustomFragmentStatePagerAdapter(FragmentManager fm) {
+public class CustomFragmentPagerAdapter extends FragmentPagerAdapter {
+    public CustomFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 

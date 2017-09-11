@@ -60,7 +60,7 @@
         </activity>
         <activity
             android:name=".XplorePageTransformer"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar.ActionBar.Blue">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

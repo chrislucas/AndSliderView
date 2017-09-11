@@ -1,7 +1,8 @@
-package appcode.xploreviewpager.transformer.adapter;
+package appcode.xploreviewpager.viewpager.transformer.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
@@ -36,30 +37,38 @@ public class ImageViewPageAdapter extends PagerAdapter {
     private ArrayList<Bitmap> bitmaps;
     private View layoutPageViewer;
 
-    public interface Callback {
+    public interface CallbackImagePagerAdapter {
         void lastPageListener(View viewGroup);
+        Context getContext();
     }
 
-    private ImageViewPageAdapter.Callback callback;
+    private CallbackImagePagerAdapter callbackImagePagerAdapter;
+
 
     @LayoutRes
     private int layoutRes;
 
-    public ImageViewPageAdapter(Context context, ArrayList<Bitmap> bitmaps, int layoutRes) {
+    @IdRes
+    private int imageId;
+
+    public ImageViewPageAdapter(Context context, ArrayList<Bitmap> bitmaps, @LayoutRes int layoutRes,  @IdRes int imageId) {
         this.context        = context;
         // o metodo abaixo encapsula  (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.layoutInflater = LayoutInflater.from(context);
         this.bitmaps        = bitmaps;
         this.layoutRes      = layoutRes;
+        this.imageId        = imageId;
     }
 
-    public ImageViewPageAdapter(Context context, ArrayList<Bitmap> bitmaps, ImageViewPageAdapter.Callback callback, int layoutRes) {
-        this.context        = context;
+    public ImageViewPageAdapter(ArrayList<Bitmap> bitmaps, CallbackImagePagerAdapter callbackImagePagerAdapter, int layoutRes, @IdRes int imageId) {
+        Context ctx         = callbackImagePagerAdapter.getContext();
+        this.context        = ctx;
         // o metodo abaixo encapsula  (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        this.layoutInflater = LayoutInflater.from(context);
+        this.layoutInflater = LayoutInflater.from(ctx);
         this.bitmaps        = bitmaps;
         this.layoutRes      = layoutRes;
-        this.callback       = callback;
+        this.callbackImagePagerAdapter = callbackImagePagerAdapter;
+        this.imageId        = imageId;
     }
 
     public View getLayoutPageViewer() {
@@ -104,15 +113,15 @@ public class ImageViewPageAdapter extends PagerAdapter {
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((View) object);
-        if(callback != null && position == 0) {
-            callback.lastPageListener(layoutPageViewer);
+        if(callbackImagePagerAdapter != null && position == 0) {
+            callbackImagePagerAdapter.lastPageListener(layoutPageViewer);
         }
     }
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         layoutPageViewer    = layoutInflater.inflate(layoutRes, container, false);
-        ImageView imageView = (ImageView) layoutPageViewer.findViewById(R.id.image_on_slider);
+        ImageView imageView = (ImageView) layoutPageViewer.findViewById(imageId);
         imageView.setImageBitmap(bitmaps.get(position));
         ViewParent viewParent = imageView.getParent();
         if(viewParent != null) {

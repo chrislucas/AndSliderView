@@ -1,6 +1,8 @@
-package appcode.xploreviewpager.listener;
+package appcode.xploreviewpager.viewpager.listener;
 
+import android.content.Context;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 
 /**
  * Created by r028367 on 11/09/2017.
@@ -10,9 +12,8 @@ public class OnPageChangeListenerImpl implements ViewPager.OnPageChangeListener 
 
 
     public interface CallbackPageChange {
-        void call();
+        void call(int position);
     }
-
 
     private CallbackPageChange callbackPageChange;
 
@@ -42,7 +43,9 @@ public class OnPageChangeListenerImpl implements ViewPager.OnPageChangeListener 
      */
     @Override
     public void onPageSelected(int position) {
-
+        Log.i("ON_PAGE_SELECTED", String.valueOf(position));
+        if(callbackPageChange != null)
+            callbackPageChange.call(position);
     }
 
     /**
@@ -57,6 +60,21 @@ public class OnPageChangeListenerImpl implements ViewPager.OnPageChangeListener 
      */
     @Override
     public void onPageScrollStateChanged(int state) {
+        String message = "";
+        switch (state) {
+            case ViewPager.SCROLL_STATE_IDLE:
+                message = "ViewPager.SCROLL_STATE_IDLE";
+                break;
 
+            case ViewPager.SCROLL_STATE_DRAGGING:
+                message = "ViewPager.SCROLL_STATE_DRAGGING";
+                break;
+
+            case ViewPager.SCROLL_STATE_SETTLING:
+                message = "ViewPager.SCROLL_STATE_SETTLING";
+                break;
+        }
+
+        Log.i("PAGE_SCR_STATE_CHANGED", message);
     }
 }
