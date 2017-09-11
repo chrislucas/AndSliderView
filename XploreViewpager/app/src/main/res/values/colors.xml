@@ -9,6 +9,8 @@
     <color name="avocado">#689f38</color>
     <color name="transparent">#00000000</color>
     <color name="black">#000000</color>
-    <color name="background_black_translucent_ca">#ca000000</color>
+    <color name="background_black_translucent_34">#34000000</color>
+    <color name="background_avocado_34">#34689f38</color>
+    <color name="background_blue_34">#3496a2e1</color>
     <color name="translucent">#ff000000</color>
 </resources>

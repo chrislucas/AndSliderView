@@ -7,6 +7,6 @@
 
     <item
         android:id="@+id/content_window_background"
-        android:drawable="@color/background_black_translucent_ca"
+        android:drawable="@color/background_black_translucent_34"
         android:top="25dp"/>
 </layer-list>
