@@ -1,19 +1,14 @@
-package appcode.xploreviewpager.animation.transformation.adapter;
+package appcode.xploreviewpager.transformer.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.os.Handler;
 import android.support.annotation.LayoutRes;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
@@ -21,6 +16,17 @@ import appcode.xploreviewpager.R;
 
 /**
  * Created by r028367 on 08/09/2017.
+ *
+ *
+ *  {@link PagerAdapter} eh a classe base que provê um
+ *  adapter para popular uma {@link android.support.v4.view.ViewPager}
+ *
+ *
+ *  Implementacoes especificas de PagerAdapter sao:
+ *  {@link android.support.v4.app.FragmentPagerAdapter}
+ *  {@link android.support.v4.app.FragmentStatePagerAdapter}
+ *
+ *
  */
 
 public class ImageViewPageAdapter extends PagerAdapter {

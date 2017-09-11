@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="appcode.xploreviewpager">
 
     <application
@@ -10,59 +9,63 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".XploreSliderTutorial"
+        <activity
+            android:name=".XploreSliderTutorial"
             android:label="@string/title_xplore_slider_tutorial"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".GoogleSlider"></activity>
+        <activity
+            android:name=".activities.CrossfadeActivity"
+            android:label="@string/title_crossfade"
+            android:parentActivityName=".GoogleSlider"
+            android:uiOptions="splitActionBarWhenNarrow">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".XploreSliderTutorial" />
+        </activity>
+        <activity
+            android:name=".activities.CardFlipActivity"
+            android:label="@string/title_card_flip"
+            android:parentActivityName=".GoogleSlider"
+            android:theme="@style/DarkTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".XploreSliderTutorial" />
+        </activity>
+        <activity
+            android:name=".activities.ScreenSlideActivity"
+            android:label="@string/title_screen_slide"
+            android:parentActivityName=".GoogleSlider"
+            android:uiOptions="splitActionBarWhenNarrow">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".XploreSliderTutorial" />
+        </activity>
+        <activity
+            android:name=".activities.ZoomActivity"
+            android:label="@string/title_zoom"
+            android:parentActivityName=".GoogleSlider">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".XploreSliderTutorial" />
+        </activity>
+        <activity
+            android:name=".activities.LayoutChangesActivity"
+            android:label="@string/title_layout_changes"
+            android:parentActivityName=".GoogleSlider">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".XploreSliderTutorial" />
+        </activity>
+        <activity
+            android:name=".XplorePageTransformer"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".GoogleSlider">
-
-        </activity>
-
-
-        <activity android:name=".activities.CrossfadeActivity"
-            android:label="@string/title_crossfade"
-            android:uiOptions="splitActionBarWhenNarrow"
-            android:parentActivityName=".GoogleSlider">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".XploreSliderTutorial" />
-        </activity>
-
-        <activity android:name=".activities.CardFlipActivity"
-            android:label="@string/title_card_flip"
-            android:parentActivityName=".GoogleSlider"
-            android:theme="@style/DarkTheme">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".XploreSliderTutorial" />
-        </activity>
-
-        <activity android:name=".activities.ScreenSlideActivity"
-            android:label="@string/title_screen_slide"
-            android:parentActivityName=".GoogleSlider"
-            android:uiOptions="splitActionBarWhenNarrow">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".XploreSliderTutorial" />
-        </activity>
-
-        <activity android:name=".activities.ZoomActivity"
-            android:label="@string/title_zoom"
-            android:parentActivityName=".GoogleSlider">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".XploreSliderTutorial" />
-        </activity>
-
-        <activity android:name=".activities.LayoutChangesActivity"
-            android:label="@string/title_layout_changes"
-            android:parentActivityName=".GoogleSlider">>
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".XploreSliderTutorial" />
-        </activity>
-
     </application>
 
 </manifest>

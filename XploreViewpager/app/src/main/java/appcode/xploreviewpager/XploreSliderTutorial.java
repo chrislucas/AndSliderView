@@ -3,14 +3,11 @@ package appcode.xploreviewpager;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.support.annotation.ColorInt;
 import android.support.annotation.IdRes;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.LayoutDirection;
 import android.util.Log;
 
 import java.io.IOException;
@@ -21,10 +18,9 @@ import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import appcode.xploreviewpager.animation.transformation.adapter.ImageViewPageAdapter;
+import appcode.xploreviewpager.transformer.adapter.ImageViewPageAdapter;
 import appcode.xploreviewpager.utils.ImageReaderFromAssetsFolder;
 import me.relex.circleindicator.CircleIndicator;
 
