@@ -1,4 +1,4 @@
-package appcode.xploreviewpager.viewpager.transformer.adapter;
+package appcode.xploreviewpager.viewpager.adapter.pageadapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;

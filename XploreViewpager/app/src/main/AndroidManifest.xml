@@ -59,8 +59,8 @@
                 android:value=".XploreSliderTutorial" />
         </activity>
         <activity
-            android:name=".XplorePageTransformer"
-            android:theme="@style/AppTheme.NoActionBar.ActionBar.Blue">
+            android:name=".XplorePageTransformerListener"
+            android:theme="@style/AppTheme.NoActionBar.Black.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

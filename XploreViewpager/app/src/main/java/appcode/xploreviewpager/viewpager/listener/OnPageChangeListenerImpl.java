@@ -1,8 +1,9 @@
 package appcode.xploreviewpager.viewpager.listener;
 
-import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+
+import appcode.xploreviewpager.viewpager.indicator.IndicatorPageChangeListener;
 
 /**
  * Created by r028367 on 11/09/2017.
@@ -10,15 +11,21 @@ import android.util.Log;
 
 public class OnPageChangeListenerImpl implements ViewPager.OnPageChangeListener {
 
-
-    public interface CallbackPageChange {
-        void call(int position);
+    public interface CallbackPageChangeListener {
+        void callback(int position);
     }
 
-    private CallbackPageChange callbackPageChange;
+    private CallbackPageChangeListener callbackPageChangeListener;
+    private IndicatorPageChangeListener indicatorPageChangeListener;
 
-    public OnPageChangeListenerImpl(CallbackPageChange callbackPageChange) {
-        this.callbackPageChange = callbackPageChange;
+    public OnPageChangeListenerImpl(CallbackPageChangeListener callbackPageChangeListener) {
+        this.callbackPageChangeListener = callbackPageChangeListener;
+    }
+
+    public OnPageChangeListenerImpl(CallbackPageChangeListener callbackPageChangeListener
+            , IndicatorPageChangeListener indicatorPageChangeListener) {
+        this.callbackPageChangeListener  = callbackPageChangeListener;
+        this.indicatorPageChangeListener = indicatorPageChangeListener;
     }
 
     /**
@@ -44,8 +51,10 @@ public class OnPageChangeListenerImpl implements ViewPager.OnPageChangeListener 
     @Override
     public void onPageSelected(int position) {
         Log.i("ON_PAGE_SELECTED", String.valueOf(position));
-        if(callbackPageChange != null)
-            callbackPageChange.call(position);
+        if(callbackPageChangeListener != null)
+            callbackPageChangeListener.callback(position);
+        if(indicatorPageChangeListener != null)
+            indicatorPageChangeListener.execute(position);
     }
 
     /**

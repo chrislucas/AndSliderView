@@ -7,37 +7,50 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fillViewport="true"
-    tools:context="appcode.xploreviewpager.XplorePageTransformer">
-
-    <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/root_viewpager"
+    tools:context="appcode.xploreviewpager.XplorePageTransformerListener">
+    <LinearLayout
+        android:id="@+id/wrapper_layout_viewpager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/view_pager_imageview"
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/root_viewpager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_height="0sp"
+            android:layout_weight="0.9"
+            android:orientation="vertical">
+            <android.support.v4.view.ViewPager
+                android:id="@+id/view_pager_imageview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+            <Button
+                android:id="@+id/button_redirect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:text="@string/ok_i_gor_it"
+                style="@style/ButtonOfViewPager"
+                android:visibility="invisible"
+                android:onClick="redirect"
+                tools:ignore="RtlHardcoded" />
+        </RelativeLayout>
 
-        <Button
-            android:id="@+id/button_redirect"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:text="@string/ok_i_gor_it"
-            style="@style/ButtonOfViewPager"
-            android:visibility="visible"
-            android:onClick="redirect"
-            tools:ignore="RtlHardcoded" />
+        <LinearLayout
+            android:id="@+id/wrapper_indicator_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            android:layout_weight="0.1"
+            android:orientation="horizontal"
+            android:background="@color/white">
 
-    </RelativeLayout>
+        </LinearLayout>
 
-
+    </LinearLayout>
 </ScrollView>

@@ -1,4 +1,4 @@
-package appcode.xploreviewpager.viewpager.transformer;
+package appcode.xploreviewpager.viewpager.transformer.abs;
 
 import android.view.View;
 

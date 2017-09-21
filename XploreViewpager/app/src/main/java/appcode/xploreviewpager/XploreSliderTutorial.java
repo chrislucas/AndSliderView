@@ -20,7 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
-import appcode.xploreviewpager.viewpager.transformer.adapter.ImageViewPageAdapter;
+import appcode.xploreviewpager.viewpager.adapter.pageadapter.ImageViewPageAdapter;
 import appcode.xploreviewpager.utils.ImageReaderFromAssetsFolder;
 import me.relex.circleindicator.CircleIndicator;
 
